@@ -1,0 +1,22 @@
+<h2>INGRESA EL ELEMENTO A CLASIFICAR</h2>
+<%= form_tag({:controller => "clasificar", :action => "clasificar"}, :method=>"post") do %>
+<%= label_tag "clasificar", "clasificar:"%>
+<%= text_field_tag "clasificar","",:placeholder => "ingresa el elemento a clasificar",:required => "required"%>
+<br />
+<%=submit_tag "clasificar"%>
+<%end%>
+
+<%if @categoria%>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-danger">
+			<div class="panel-heading">RESULTADO!!</div>
+			<div class="panel-body">
+			<ul>
+                <li><%=@categoria%></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<%end%>

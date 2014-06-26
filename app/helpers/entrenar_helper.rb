@@ -1,0 +1,2 @@
+module EntrenarHelper
+end

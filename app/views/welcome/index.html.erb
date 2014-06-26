@@ -1,0 +1,38 @@
+<h1>Inteligencia Artificial</h1>
+<h2>INGRESA LOS DATOS</h2>
+<%= form_tag({:controller => "welcome", :action => "index"}, :method=>"post") do %>
+<%= label_tag "marca", "marca del celular:"%>
+<%= text_field_tag "marca","",:placeholder => "ingresa la marca",:required => "required"%>
+<br />
+<%= label_tag "descripcion", "descripciones:"%>
+<%= text_field_tag "descripcion","",:placeholder => "ingresa las descripciones",:required => "required"%>
+<br />
+<%=submit_tag "enviar"%>
+<%end%>
+<div id="resultados">
+	<% if @ex %>
+	<p> <%=@ex%> </p>
+	<%end %>
+	<% if @cont && @cont != 0 %>
+		<table  BORDER="3" CELLSPACING="6" >
+			<tr>
+  				<td><strong>id</strong></td>
+  				<td><strong>marca</strong></td>
+  				<td><strong>descripciones</strong></td>
+  				<td><strong>coeficientes</strong></td>
+			</tr>
+			<% j=1%>
+			<%while j<6%>
+				<%if@id[j]!=nil%>
+					<tr>
+  						<td><%=@id[j]%></td>
+  						<td><%=@m[j]%></td>
+  						<td><%=@d[j]%></td>
+  						<td><%=@coeficientes[j]%></td>
+					</tr>
+				<%end%>
+			<%j+=1%>
+			<%end %>
+		</table>
+	<%end %>
+</div>

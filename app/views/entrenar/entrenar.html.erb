@@ -1,0 +1,27 @@
+<h2>INGRESA EL ENTRENAMIENTO</h2>
+<%= form_tag({:controller => "entrenar", :action => "entrenar"}, :method=>"post") do %>
+<%= label_tag "soporte", "soporte:"%>
+<%= text_field_tag "soporte","",:placeholder => "ingresa el entrenamiento para el soporte",:required => "required"%>
+<br />
+<%= label_tag "comercial", "comercial:"%>
+<%= text_field_tag "comercial","",:placeholder => "ingresa el entrenamiento para el comercial",:required => "required"%>
+<br />
+<%=submit_tag "guardar"%>
+<%end%>
+
+
+<%if @exito%>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-danger">
+			<div class="panel-heading">EXITO!!</div>
+			<div class="panel-body">
+			<ul>
+                <li><%=@exito%></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<%end%>
+
